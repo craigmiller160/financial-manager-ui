@@ -15,6 +15,9 @@
     "react-scripts": "3.4.3",
     "typescript": "^3.7.5"
   },
+  "devDependencies": {
+    "@craigmiller160/eslint-config-cra-extension": "^1.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
