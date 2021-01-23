@@ -17,13 +17,12 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { PageHeader } from '@craigmiller160/react-material-ui-common';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const Import = () => (
+        <div>
+            <PageHeader title="Import" />
+        </div>
+    );
+
+export default Import;

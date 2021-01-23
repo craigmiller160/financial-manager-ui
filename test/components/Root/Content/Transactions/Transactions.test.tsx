@@ -1,6 +1,6 @@
 /*
  * financial-manager-ui
- * Copyright (C) 2020 Craig Miller
+ * Copyright (C) 2021 Craig Miller
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,19 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { render, waitFor, screen } from '@testing-library/react';
+import Transactions from '../../../../../src/components/Root/Content/Transactions';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const doRender = () => waitFor(() => render(
+    <Transactions />
+));
+
+describe('Transactions', () => {
+    describe('rendering', () => {
+        it('renders', async () => {
+            await doRender();
+            expect(screen.queryByText('Transactions'))
+                .toBeInTheDocument();
+        });
+    });
+});

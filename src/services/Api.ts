@@ -1,6 +1,6 @@
 /*
  * financial-manager-ui
- * Copyright (C) 2020 Craig Miller
+ * Copyright (C) 2021 Craig Miller
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,14 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { createApi } from '@craigmiller160/ajax-api-fp-ts';
+import errorHandler from './errorHandler';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+export default createApi({
+    baseURL: '/financial-manage-ui/api',
+    useCsrf: true,
+    defaultErrorHandler: errorHandler
+});

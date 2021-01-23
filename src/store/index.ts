@@ -16,14 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { reduxAlertReducer } from '@craigmiller160/react-material-ui-common';
+import authSlice from './auth/slice';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const rootReducer = combineReducers({
+    auth: authSlice.reducer,
+    alert: reduxAlertReducer
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
+
+export default configureStore({
+    reducer: rootReducer,
+    devTools: process.env.NODE_ENV !== 'production'
+});

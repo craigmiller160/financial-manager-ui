@@ -16,14 +16,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { Dispatch } from 'redux';
+import * as TE from 'fp-ts/es6/TaskEither';
+import * as T from 'fp-ts/es6/Task';
+import * as O from 'fp-ts/es6/Option';
+import { pipe } from 'fp-ts/es6/function';
+import { getAuthUser } from '../../services/AuthService';
+import authSlice from './slice';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+export const loadAuthUser = () => (dispatch: Dispatch) =>
+    pipe(
+        getAuthUser(),
+        TE.fold(
+            (error) => T.of(O.none),
+            (authUser) => T.of(O.some(authUser))
+        ),
+        T.map((userOption) => dispatch(authSlice.actions.setUserData(userOption)))
+    )();

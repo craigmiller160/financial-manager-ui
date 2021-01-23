@@ -17,13 +17,21 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import theme from './theme';
+import Root from './Root';
+import store from '../store';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+const App = () => (
+    <ReduxProvider store={ store }>
+        <BrowserRouter basename="/auth-manage-ui">
+            <ThemeProvider theme={ theme }>
+                <Root />
+            </ThemeProvider>
+        </BrowserRouter>
+    </ReduxProvider>
 );
+
+export default App;

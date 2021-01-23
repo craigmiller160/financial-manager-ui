@@ -16,14 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadAuthUser } from '../../store/auth/actions';
+import { RootState } from '../../store';
+import FinancialNavbar from './FinancialNavbar';
+import Content from './Content';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const Root = () => {
+    const dispatch = useDispatch();
+    const hasChecked = useSelector<RootState>((state) => state.auth.hasChecked);
+
+    useEffect(() => {
+        dispatch(loadAuthUser());
+    }, [ dispatch ]);
+
+    return (
+        <div>
+            <FinancialNavbar />
+            {
+                hasChecked &&
+                <Content />
+            }
+        </div>
+    );
+};
+
+export default Root;

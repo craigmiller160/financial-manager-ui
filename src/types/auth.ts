@@ -16,14 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+export interface AuthUser {
+    username: string;
+    firstName: string;
+    lastName: string;
+    roles: Array<String>;
+}
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+export interface AuthCodeLogin {
+    url: string;
+}

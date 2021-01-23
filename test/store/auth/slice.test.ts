@@ -1,6 +1,6 @@
 /*
  * financial-manager-ui
- * Copyright (C) 2020 Craig Miller
+ * Copyright (C) 2021 Craig Miller
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,14 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import * as O from 'fp-ts/es6/Option';
+import authSlice, { initialState } from '../../../src/store/auth/slice';
+import { mockAuthUser } from '../../testutils/data/mocks';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+describe('auth slice', () => {
+    it('setUserData', () => {
+        const result = authSlice.reducer(initialState, authSlice.actions.setUserData(O.some(mockAuthUser)));
+        expect(result).toEqual({
+            userData: O.some(mockAuthUser),
+            hasChecked: true
+        });
+    });
+});

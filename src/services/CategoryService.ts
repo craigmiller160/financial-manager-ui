@@ -16,14 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import * as TE from 'fp-ts/es6/TaskEither';
+import { pipe } from 'fp-ts/es6/pipeable';
+import api from './Api';
+import { CategoryList } from '../types/category';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+export const getAllCategories = (): TE.TaskEither<Error, CategoryList> =>
+    pipe(
+        api.get<CategoryList>({
+            uri: '/categories',
+            errorMsg: 'Unable to get all categories'
+        }),
+        TE.map((res) => res.data)
+    );

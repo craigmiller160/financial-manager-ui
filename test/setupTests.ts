@@ -1,6 +1,6 @@
 /*
  * financial-manager-ui
- * Copyright (C) 2020 Craig Miller
+ * Copyright (C) 2021 Craig Miller
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,14 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import '@relmify/jest-fp-ts';
+import '@testing-library/jest-dom/extend-expect';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+beforeEach(() => {
+    // @ts-ignore
+    delete window.location;
+    // @ts-ignore
+    window.location = {
+        assign: jest.fn(),
+        pathname: '/',
+        search: '',
+        hash: '',
+        href: ''
+    };
+});

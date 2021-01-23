@@ -21,8 +21,7 @@
     "module": "es2015"
   },
   "include": [
-    "/home/craig/Development/Applications/financial-manager-ui/src/**/*",
-    "/home/craig/Development/Applications/financial-manager-ui/test/**/*"
+    "/home/craig/Development/Applications/financial-manager-ui/src/**/*"
   ],
   "exclude": [
     "/home/craig/Development/Applications/financial-manager-ui/node_modules",

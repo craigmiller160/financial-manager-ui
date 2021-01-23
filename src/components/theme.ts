@@ -16,14 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import { green, yellow } from '@material-ui/core/colors';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: green[500]
+        },
+        secondary: {
+            main: yellow[800]
+        }
+    }
+});
+
+export default theme;

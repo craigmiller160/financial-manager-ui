@@ -16,14 +16,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+import { Option } from 'fp-ts/es6/Option';
+import * as O from 'fp-ts/es6/Option';
+import { createSelector } from '@reduxjs/toolkit';
+import { AuthUser } from '../../types/auth';
+import { RootState } from '../index';
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+const userDataSelector = (state: RootState): Option<AuthUser> => state.auth.userData;
+
+export const isAuthorized = createSelector(
+    userDataSelector,
+    (userData: Option<AuthUser>) => O.isSome(userData)
+);
+
+export const hasAdminRole = createSelector(
+    userDataSelector,
+    (userData: Option<AuthUser>) => O.exists((user: AuthUser) => user.roles.includes('ROLE_ADMIN'))(userData)
 );

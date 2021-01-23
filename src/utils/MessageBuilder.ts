@@ -16,14 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+export default class MessageBuilder {
+    constructor(public message: string = '') { }
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+    append(part?: string): MessageBuilder {
+        if (part) {
+            return new MessageBuilder(`${this.message} ${part}`);
+        }
+        return new MessageBuilder(this.message);
+    }
+}

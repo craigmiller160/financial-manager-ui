@@ -1,4 +1,4 @@
-/*
+/*!
  * financial-manager-ui
  * Copyright (C) 2020 Craig Miller
  *
@@ -16,14 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.scss';
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+body {
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+* {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
