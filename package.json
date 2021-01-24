@@ -1,6 +1,6 @@
 {
   "name": "financial-manager-ui",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-beta.1",
   "private": true,
   "dependencies": {
     "@craigmiller160/ajax-api-fp-ts": "^1.0.1",

@@ -26,7 +26,7 @@ import store from '../store';
 
 const App = () => (
     <ReduxProvider store={ store }>
-        <BrowserRouter basename="/auth-manage-ui">
+        <BrowserRouter basename="/financial-manage-ui">
             <ThemeProvider theme={ theme }>
                 <Root />
             </ThemeProvider>

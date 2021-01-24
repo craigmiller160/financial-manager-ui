@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: financial-manager-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: financial-manager-ui
+  template:
+    metadata:
+      labels:
+        app: financial-manager-ui
+    spec:
+      containers:
+        - name: financial-manager-ui
+          image: localhost:32000/financial-manager-ui:1.0.0-beta.1
+          ports:
+            - containerPort: 443
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 443
+              scheme: HTTPS
+            initialDelaySeconds: 10
+            periodSeconds: 300
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: financial-manager-ui-service
+spec:
+  type: ClusterIP
+  selector:
+    app: financial-manager-ui
+  ports:
+    - port: 443
+      targetPort: 443
+      protocol: TCP
