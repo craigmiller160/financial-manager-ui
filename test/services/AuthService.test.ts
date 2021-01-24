@@ -30,14 +30,14 @@ describe('AuthService', () => {
     });
 
     it('logout', async () => {
-        mockApi.onGet('/financial-manage-ui/api/oauth/logout')
+        mockApi.onGet('/financial-manager/api/oauth/logout')
             .reply(200);
         const result = await logout()();
         expect(result).toBeRight();
     });
 
     it('login', async () => {
-        const uri = '/financial-manage-ui/api/oauth/authcode/login';
+        const uri = '/financial-manager/api/oauth/authcode/login';
         const authCodeLogin: AuthCodeLogin = {
             url: 'ABCDEFG'
         };
@@ -56,7 +56,7 @@ describe('AuthService', () => {
             lastName: 'lastName',
             roles: []
         };
-        mockApi.onGet('/financial-manage-ui/api/oauth/user')
+        mockApi.onGet('/financial-manager/api/oauth/user')
             .reply(200, authUser);
         const result = await getAuthUser()();
         expect(result).toEqualRight(authUser);

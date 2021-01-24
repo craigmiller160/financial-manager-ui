@@ -22,23 +22,23 @@ module.exports = {
     title: 'Financial Manager',
     devServerPort: 3002,
     devServerHttps: true,
-    publicPath: '/financial-manage-ui',
+    publicPath: '/financial-manager',
     devServerProxy: {
-        '/financial-manage-ui/api': {
+        '/financial-manager/api': {
             target: 'https://localhost:7005',
             changeOrigin: true,
             secure: false,
             pathRewrite: {
-                '^/financial-manage-ui/api': ''
+                '^/financial-manager/api': ''
             },
             logLevel: 'debug'
         },
-        '/financial-manage-ui/oauth2': {
+        '/financial-manager/oauth2': {
             target: 'https://localhost:7003',
             changeOrigin: true,
             secure: false,
             pathRewrite: {
-                '^/financial-manage-ui/oauth2': ''
+                '^/financial-manager/oauth2': ''
             },
             logLevel: 'debug'
         }

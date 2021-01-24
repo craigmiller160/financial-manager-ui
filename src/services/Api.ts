@@ -20,7 +20,7 @@ import { createApi } from '@craigmiller160/ajax-api-fp-ts';
 import errorHandler from './errorHandler';
 
 export default createApi({
-    baseURL: '/financial-manage-ui/api',
+    baseURL: '/financial-manager/api',
     useCsrf: true,
     defaultErrorHandler: errorHandler
 });
