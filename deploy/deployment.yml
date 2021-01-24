@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: financial-manager-ui
-          image: localhost:32000/financial-manager-ui:1.0.0
+          image: localhost:32000/financial-manager-ui:1.1.0-beta
           ports:
             - containerPort: 443
           livenessProbe:
