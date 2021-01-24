@@ -65,7 +65,7 @@ const FinancialNavbar = () => {
             showAuthBtn={ hasChecked }
             login={ login() }
             logout={ doLogout }
-            title="Financial Management"
+            title="Financial Manager"
             items={ items }
         />
     );
