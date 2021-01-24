@@ -32,7 +32,7 @@ describe('CategoryService', () => {
         const categoryList: CategoryList = {
             categories: []
         };
-        mockApi.onGet('/financial-manage-ui/api/categories')
+        mockApi.onGet('/financial-manager/api/categories')
             .reply(200, categoryList);
         const result = await getAllCategories()();
         expect(result).toEqualRight(categoryList);
