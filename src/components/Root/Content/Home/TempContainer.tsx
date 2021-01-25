@@ -1,12 +1,21 @@
 import React from 'react';
 import { Category } from '../../../../types/category';
-import { Card, CardActions, CardContent, CardHeader, IconButton, Typography } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 import './TempContainer.scss';
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { useImmer } from 'use-immer';
+import { ExpandMore } from '@material-ui/icons';
 
 // TODO delete this
 
+interface State {
+    expandedIndex: number;
+}
+
 const TempContainer = () => {
+    const [ state, setState ] = useImmer<State>({
+        expandedIndex: -1
+    });
+
     const categories: Category[] = [
         {
             id: 1,
@@ -30,7 +39,13 @@ const TempContainer = () => {
             {
                 categories.map((category) => (
                     <Card className="Card" key={ category.id }>
-                        <h3>Hello World</h3>
+                        <div className="CategoryInfo">
+                            <h3>{ category.name }</h3>
+                            <p>{ category.description ?? 'N/A' }</p>
+                        </div>
+                        <div className="Action">
+                            <ExpandMore />
+                        </div>
                     </Card>
                 ))
             }
