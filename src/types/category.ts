@@ -19,8 +19,9 @@
 export interface Category {
     id: number;
     name: string;
+    description?: string;
 }
 
 export interface CategoryList {
-    categories: Array<Category>;
+    categories: Category[];
 }
