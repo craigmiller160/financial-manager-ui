@@ -59,10 +59,6 @@ const TempContainer = () => {
                                             name="name"
                                             label="Category Name"
                                         />
-                                        <TextareaAutosize
-                                            name="description"
-                                            label="Category Description"
-                                        />
                                     </div>
                             }
                             {
