@@ -1,13 +1,13 @@
 import React from 'react';
 import { Category } from '../../../../types/category';
-import { Card, IconButton, TextareaAutosize, TextField } from '@material-ui/core';
+import { Card, IconButton, TextareaAutosize, TextField, Tooltip } from '@material-ui/core';
 import './TempContainer.scss';
 import { useImmer } from 'use-immer';
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { Cancel, Delete, Edit, ExpandLess, ExpandMore, Save } from '@material-ui/icons';
 
 // TODO delete this
 
-// TODO when should changes be saved? On type (with debounce) is good and all, but what about new cateogries? Or changing cateogry name? this will affect ordering
+// TODO when editing another item, warning about existing unsaved changes should be shown
 
 interface State {
     expandedIndex: number;
@@ -35,13 +35,9 @@ const TempContainer = () => {
         }
     ];
 
-    const doExpand = (index: number) =>
+    const doEdit = (index: number) =>
         setState((draft) => {
-            if (draft.expandedIndex === index) {
-                draft.expandedIndex = -1;
-            } else {
-                draft.expandedIndex = index;
-            }
+            draft.expandedIndex = index;
         });
 
     return (
@@ -79,16 +75,34 @@ const TempContainer = () => {
                                 </div>
                             }
                             <div className="Action">
-                                <IconButton onClick={ () => doExpand(index) }>
-                                    {
-                                        isExpanded &&
-                                        <ExpandLess />
-                                    }
-                                    {
-                                        !isExpanded &&
-                                        <ExpandMore />
-                                    }
-                                </IconButton>
+                                {
+                                    !isExpanded &&
+                                    <Tooltip title="Edit">
+                                        <IconButton onClick={ () => doEdit(index) }>
+                                            <Edit />
+                                        </IconButton>
+                                    </Tooltip>
+                                }
+                                {
+                                    isExpanded &&
+                                    <>
+                                        <Tooltip title="Save">
+                                            <IconButton>
+                                                <Save />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Cancel">
+                                            <IconButton>
+                                                <Cancel />
+                                            </IconButton>
+                                        </Tooltip>
+                                        <Tooltip title="Delete">
+                                            <IconButton>
+                                                <Delete />
+                                            </IconButton>
+                                        </Tooltip>
+                                    </>
+                                }
                             </div>
                         </Card>
                     );
