@@ -1,11 +1,13 @@
 import React from 'react';
 import { Category } from '../../../../types/category';
-import { Card, IconButton } from '@material-ui/core';
+import { Card, IconButton, TextareaAutosize, TextField } from '@material-ui/core';
 import './TempContainer.scss';
 import { useImmer } from 'use-immer';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
 // TODO delete this
+
+// TODO when should changes be saved? On type (with debounce) is good and all, but what about new cateogries? Or changing cateogry name? this will affect ordering
 
 interface State {
     expandedIndex: number;
@@ -35,7 +37,11 @@ const TempContainer = () => {
 
     const doExpand = (index: number) =>
         setState((draft) => {
-            draft.expandedIndex = index;
+            if (draft.expandedIndex === index) {
+                draft.expandedIndex = -1;
+            } else {
+                draft.expandedIndex = index;
+            }
         });
 
     return (
@@ -46,6 +52,19 @@ const TempContainer = () => {
                     const isExpanded = state.expandedIndex === index;
                     return (
                         <Card className="Card" key={ category.id }>
+                            {
+                                isExpanded &&
+                                    <div className="CategoryEdit">
+                                        <TextField
+                                            name="name"
+                                            label="Category Name"
+                                        />
+                                        <TextareaAutosize
+                                            name="description"
+                                            label="Category Description"
+                                        />
+                                    </div>
+                            }
                             {
                                 !isExpanded &&
                                 <div className="CategoryInfo">

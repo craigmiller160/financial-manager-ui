@@ -15,6 +15,13 @@
       }
     }
 
+    .CategoryEdit {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 80%;
+    }
+
     .Action {
       display: flex;
       flex-direction: column;
