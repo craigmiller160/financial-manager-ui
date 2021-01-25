@@ -58,6 +58,16 @@ const TempContainer = () => {
                                         <TextField
                                             name="name"
                                             label="Category Name"
+                                            className="Name"
+                                            variant="outlined"
+                                        />
+                                        <TextField
+                                            name="description"
+                                            label="Category Description"
+                                            multiline
+                                            rows={ 5 }
+                                            className="Description"
+                                            variant="outlined"
                                         />
                                     </div>
                             }

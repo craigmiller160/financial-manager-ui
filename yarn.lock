@@ -923,10 +923,10 @@
   dependencies:
     axios "^0.21.1"
 
-"@craigmiller160/react-hook-form-material-ui@^1.1.0":
-  version "1.1.0"
-  resolved "http://craigpc:30000/@craigmiller160%2freact-hook-form-material-ui/-/react-hook-form-material-ui-1.1.0.tgz#4625c5e33b2a077b406f2ad4cd18a62dfd647ab3"
-  integrity sha512-fkHW73RcnZVa5XTVEGJbJnS3lbIUwQTB/jrWWCaaVV46znyrbxk5QpR+Bwpua+WNKZOJbYP/urCkH6ka4pCaag==
+"@craigmiller160/react-hook-form-material-ui@^1.1.1":
+  version "1.1.1"
+  resolved "http://craigpc:30000/@craigmiller160%2freact-hook-form-material-ui/-/react-hook-form-material-ui-1.1.1.tgz#e4509efccc01eb5d5c3136086972fa6925c3e8a6"
+  integrity sha512-Uol5z+MGGyL6zNsUDuaTmwdmxPZvnpMmqNP06AUxGqr66Mo/PNXH1eh4nM64D0Kgi91C1fKl7H+W06DLhv8keQ==
   dependencies:
     "@material-ui/core" "^4.11.3"
     "@material-ui/lab" "^4.0.0-alpha.57"
