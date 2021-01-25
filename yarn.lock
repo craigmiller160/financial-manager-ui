@@ -923,7 +923,17 @@
   dependencies:
     axios "^0.21.1"
 
-"@craigmiller160/react-material-ui-common@^1.1.0":
+"@craigmiller160/react-hook-form-material-ui@^1.0.1":
+  version "1.0.1"
+  resolved "http://craigpc:30000/@craigmiller160%2freact-hook-form-material-ui/-/react-hook-form-material-ui-1.0.1.tgz#320bd3da8515c0c6361a4b437c5c27b4c282cf54"
+  integrity sha512-yUKsKbRgmqmYzK3zRLjyT/8S4ZlCDvz3HJs8DVoolyfueO0xTk/X5l0tFhNuYWfCuaTSjKE+X2UeMxGKF97kKg==
+  dependencies:
+    "@material-ui/core" "^4.11.3"
+    "@material-ui/lab" "^4.0.0-alpha.57"
+    react "^17.0.1"
+    react-hook-form "^6.14.2"
+
+"@craigmiller160/react-material-ui-common@^1.2.0":
   version "1.2.0"
   resolved "http://craigpc:30000/@craigmiller160%2freact-material-ui-common/-/react-material-ui-common-1.2.0.tgz#08ca60b3cf1427a1cd07d5fdff287225e521a020"
   integrity sha512-0LE+2tXmfBORVtPT8y3fRDGfc8O2GTpsl55YrZ+iA2OS+5wKsEmZFk89DGIyYSdBXLPTV5Ii9zZFm4APc+lCcw==
@@ -940,7 +950,7 @@
     redux "^4.0.5"
     redux-thunk "^2.3.0"
 
-"@craigmiller160/react-protected-route@^1.2.0":
+"@craigmiller160/react-protected-route@^1.2.1":
   version "1.2.1"
   resolved "http://craigpc:30000/@craigmiller160%2freact-protected-route/-/react-protected-route-1.2.1.tgz#427c8eddecfd346aa9369a407a652d784c8fc53c"
   integrity sha512-SD7SdPbe7i1gUpJj8rT6PcyevE7TcTKRZoL2NvDc6gxu/0b3eaGkzehbdEj9BQbNCN9sG+k/7nsPvKWtAWJnJA==
@@ -1639,12 +1649,12 @@
   resolved "http://craigpc:30000/@types%2fq/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
-"@types/react-dom@^16.9.8":
-  version "16.9.10"
-  resolved "http://craigpc:30000/@types%2freact-dom/-/react-dom-16.9.10.tgz#4485b0bec3d41f856181b717f45fd7831101156f"
-  integrity sha512-ItatOrnXDMAYpv6G8UCk2VhbYVTjZT9aorLtA/OzDN9XJ2GKcfam68jutoAcILdRjsRUO8qb7AmyObF77Q8QFw==
+"@types/react-dom@^17.0.0":
+  version "17.0.0"
+  resolved "http://craigpc:30000/@types%2freact-dom/-/react-dom-17.0.0.tgz#b3b691eb956c4b3401777ee67b900cb28415d95a"
+  integrity sha512-lUqY7OlkF/RbNtD5nIq7ot8NquXrdFrjSOR6+w9a9RFQevGi1oZO1dcJbXMeONAPKtZ2UrZOEJ5UOCVsxbLk/g==
   dependencies:
-    "@types/react" "^16"
+    "@types/react" "*"
 
 "@types/react-redux@^7.1.9":
   version "7.1.16"
@@ -1680,18 +1690,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^17.0.0":
   version "17.0.0"
   resolved "http://craigpc:30000/@types%2freact/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
   integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^3.0.2"
-
-"@types/react@^16", "@types/react@^16.9.50":
-  version "16.14.2"
-  resolved "http://craigpc:30000/@types%2freact/-/react-16.14.2.tgz#85dcc0947d0645349923c04ccef6018a1ab7538c"
-  integrity sha512-BzzcAlyDxXl2nANlabtT4thtvbbnhee8hMmH/CcJrISDBVcJS1iOsP1f0OAgSdGE0MsY9tqcrb9YoZcOFv9dbQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -8571,16 +8573,6 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^16.13.1:
-  version "16.14.0"
-  resolved "http://craigpc:30000/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
-  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.19.1"
-
 react-dom@^17.0.1:
   version "17.0.1"
   resolved "http://craigpc:30000/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
@@ -8589,6 +8581,11 @@ react-dom@^17.0.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.1"
+
+react-hook-form@^6.14.2:
+  version "6.14.2"
+  resolved "http://craigpc:30000/react-hook-form/-/react-hook-form-6.14.2.tgz#60ab0b5367b220a3d96aa0b17bd0f13f9d8c326a"
+  integrity sha512-GgDUuT3Yfhl1BOcMl862uAFbCixSomtm3CVlQQ1qVu9Tq5BN2uUIRUIXP8l2Gy99eLUrBqU9x4E7N+si9cnvaw==
 
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.13.1"
@@ -8676,15 +8673,6 @@ react-transition-group@^4.4.0:
     "@babel/runtime" "^7.5.5"
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
-    prop-types "^15.6.2"
-
-react@^16.13.1:
-  version "16.14.0"
-  resolved "http://craigpc:30000/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
-  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
     prop-types "^15.6.2"
 
 react@^17.0.1:
