@@ -1,9 +1,9 @@
 import React from 'react';
 import { Category } from '../../../../types/category';
-import { Card } from '@material-ui/core';
+import { Card, IconButton } from '@material-ui/core';
 import './TempContainer.scss';
 import { useImmer } from 'use-immer';
-import { ExpandMore } from '@material-ui/icons';
+import { ExpandLess, ExpandMore } from '@material-ui/icons';
 
 // TODO delete this
 
@@ -33,21 +33,41 @@ const TempContainer = () => {
         }
     ];
 
+    const doExpand = (index: number) =>
+        setState((draft) => {
+            draft.expandedIndex = index;
+        });
+
     return (
         <div className="TempContainer">
             <h3>Temp Container</h3>
             {
-                categories.map((category) => (
-                    <Card className="Card" key={ category.id }>
-                        <div className="CategoryInfo">
-                            <h3>{ category.name }</h3>
-                            <p>{ category.description ?? 'N/A' }</p>
-                        </div>
-                        <div className="Action">
-                            <ExpandMore />
-                        </div>
-                    </Card>
-                ))
+                categories.map((category, index) => {
+                    const isExpanded = state.expandedIndex === index;
+                    return (
+                        <Card className="Card" key={ category.id }>
+                            {
+                                !isExpanded &&
+                                <div className="CategoryInfo">
+                                    <h3>{ category.name }</h3>
+                                    <p>{ category.description ?? 'N/A' }</p>
+                                </div>
+                            }
+                            <div className="Action">
+                                <IconButton onClick={ () => doExpand(index) }>
+                                    {
+                                        isExpanded &&
+                                        <ExpandLess />
+                                    }
+                                    {
+                                        !isExpanded &&
+                                        <ExpandMore />
+                                    }
+                                </IconButton>
+                            </div>
+                        </Card>
+                    );
+                })
             }
         </div>
     );
