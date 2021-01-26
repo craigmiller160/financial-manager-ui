@@ -1,9 +1,10 @@
 import React from 'react';
 import { Category } from '../../../../types/category';
-import { Card, IconButton, TextareaAutosize, TextField, Tooltip } from '@material-ui/core';
+import { Card, IconButton, TextField, Tooltip } from '@material-ui/core';
 import './TempContainer.scss';
 import { useImmer } from 'use-immer';
 import { Cancel, Delete, Edit, ExpandLess, ExpandMore, Save } from '@material-ui/icons';
+import TooltipIconButton from '../../../ui/TooltipIconButton';
 
 // TODO delete this
 
@@ -86,21 +87,18 @@ const TempContainer = () => {
                                 {
                                     isExpanded &&
                                     <>
-                                        <Tooltip title="Save">
-                                            <IconButton>
-                                                <Save />
-                                            </IconButton>
-                                        </Tooltip>
-                                        <Tooltip title="Cancel">
-                                            <IconButton>
-                                                <Cancel />
-                                            </IconButton>
-                                        </Tooltip>
-                                        <Tooltip title="Delete">
-                                            <IconButton>
-                                                <Delete />
-                                            </IconButton>
-                                        </Tooltip>
+                                        <TooltipIconButton
+                                            title="Save"
+                                            icon={ <Save /> }
+                                        />
+                                        <TooltipIconButton
+                                            title="Cancel"
+                                            icon={ <Cancel /> }
+                                        />
+                                        <TooltipIconButton
+                                            title="Delete"
+                                            icon={ <Delete /> }
+                                        />
                                     </>
                                 }
                             </div>
