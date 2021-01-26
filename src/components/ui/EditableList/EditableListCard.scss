@@ -1,0 +1,18 @@
+.EditableListCard {
+  margin: 0.5rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .Content {
+    width: 80%;
+  }
+
+  .Actions {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
