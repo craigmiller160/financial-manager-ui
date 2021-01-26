@@ -113,28 +113,3 @@ const TempContainer = () => {
 };
 
 export default TempContainer;
-
-
-
-/*
- * {
-                categories.map((category) => (
-                    <Card key={ category.id } className="Card">
-                        <CardHeader
-                            title={ category.name }
-                            subheader={ category.description }
-                        />
-                        <CardContent>
-                            <Typography variant="h5">{ category.name }</Typography>
-                            <Typography variant="body2">{ category.description }</Typography>
-                        </CardContent>
-                        <CardActions disableSpacing>
-                            <IconButton>
-                                <ExpandMore />
-                                <ExpandLess />
-                            </IconButton>
-                        </CardActions>
-                    </Card>
-                ))
-            }
- */
