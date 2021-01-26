@@ -19,11 +19,12 @@
 import React from 'react';
 import { PageHeader } from '@craigmiller160/react-material-ui-common';
 import TempContainer from './TempContainer';
+import TempContainer2 from './TempContainer2';
 
 const Home = () => (
     <div>
         <PageHeader title="Welcome to Financial Manager" />
-        <TempContainer />
+        <TempContainer2 />
     </div>
 );
 

@@ -1,33 +1,37 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import './EditableListCard.scss';
 import { IconButton, Tooltip } from '@material-ui/core';
 import { Cancel, Delete, Edit, Save } from '@material-ui/icons';
 import TooltipIconButton from '../TooltipIconButton';
+import { ViewComponentType } from '../../../types/editableList';
 
 interface Props<T> {
     item: T;
-    index: number;
     isEditing: boolean;
-    doEdit: (index: number) => void;
+    doEdit: () => void;
+    viewComponent: ViewComponentType<T>;
 }
 
 const EditableListCard = <T extends object>(props: Props<T>) => {
     const {
         isEditing,
         doEdit,
-        index
+        viewComponent,
+        item
     } = props;
+
+    const ViewComponent = viewComponent;
 
     return (
         <div className="EditableListCard">
             <div className="Content">
-
+                <ViewComponent item={ item } />
             </div>
             <div className="Actions">
                 {
                     !isEditing &&
                     <Tooltip title="Edit">
-                        <IconButton onClick={ () => doEdit(index) }>
+                        <IconButton onClick={ doEdit }>
                             <Edit />
                         </IconButton>
                     </Tooltip>
